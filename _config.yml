@@ -5,10 +5,11 @@ auto: true
 rdiscount:
   extensions: [smart]
 title : Scale Horizontally
-production_url : http://craigtracey.github.io/scalehorizontally.com
+production_url : http://www.scalehorizontally.com
 description: "A blog about building scalable, automated infrastructure"
 disqus_shortname: scalehorizontally
-#analytics:
+analytics: UA-36590617-1
+hubspot_portal: 208790
 #gauges: 50f2b533613f5d7c8000000c
 author :
   name : Craig Tracey
