@@ -2,7 +2,4 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'rdiscount'
-gem 'jekyll'
-
-gem 'rmagick'
-
+gem 'jekyll', '~> 1.0.2'

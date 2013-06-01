@@ -1,17 +1,17 @@
 markdown: rdiscount
 pygments: true
-permalink: /posts/:title
+permalink: /:year/:month/:day/:title
 auto: true
 rdiscount:
   extensions: [smart]
-title : Carlos Becker
-production_url : http://carlosbecker.com
-description: "Througths, flamewars, utilities, tutorials, codes, projects and other things by Carlos Alexandro Becker."
-disqus_shortname: caarlos0blog
-analytics: UA-32899481-1
-gauges: 50f2b533613f5d7c8000000c
+title : Scale Horizontally
+production_url : http://craigtracey.github.io/scalehorizontally.com
+description: "A blog about building scalable, automated infrastructure"
+disqus_shortname: scalehorizontally
+#analytics:
+#gauges: 50f2b533613f5d7c8000000c
 author :
-  name : Carlos Alexandro Becker
-  github : caarlos0
-  twitter : caarlos0
-  email: caarlos0@gmail.com
+  name : Craig Tracey
+  github : craigtracey
+  twitter : craig_tracey
+  email: craig@scalehorizontally.com
