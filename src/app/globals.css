@@ -820,3 +820,79 @@ em {
 .career-milestones > div { display: flex; flex-direction: column; gap: 8px; }
 .career-milestones dt { font-size: 14px; color: var(--muted); }
 .career-milestones dd { order: -1; margin: 0; font-size: 42px; line-height: 1; letter-spacing: -1.5px; color: var(--foreground); }
+
+/* Hero: lead with technical focus, with current projects beside the portrait. */
+.hero {
+  grid-template-columns: minmax(0, 1fr) 280px;
+  column-gap: 80px;
+  row-gap: 56px;
+  padding-top: 88px;
+}
+.hero h1 {
+  font-size: clamp(48px, 6.6vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.hero h1 > span { color: var(--accent); }
+.hero-description { max-width: 560px; line-height: 1.75; }
+.hero .current-work {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  padding: 0;
+  gap: 0;
+}
+.hero .portrait { width: 220px; margin-bottom: 16px; }
+.hero-projects { width: 100%; padding-inline: 20px; }
+.hero-projects .eyebrow { margin-bottom: 12px; }
+.hero .hero-projects > a {
+  display: flex;
+  width: 100%;
+  padding-block: 16px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.hero .hero-projects > a > .project-brand { font-size: inherit; }
+.hero .current-work .brand-wordmark { font-size: 25px; }
+.hero-footnote { margin-top: 0; padding-block: 28px; }
+.hero-footnote > .career-milestones {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+}
+.hero-footnote .career-milestones > div { flex-direction: row; align-items: baseline; gap: 10px; }
+.hero-footnote .career-milestones dd { font-size: 30px; letter-spacing: -1px; }
+.hero-footnote .career-milestones dt { font-size: 14px; }
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: minmax(0, 1fr) 230px; column-gap: 36px; }
+  .hero .portrait { width: 200px; }
+  .hero-projects { padding-inline: 8px; }
+}
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 52px; row-gap: 36px; }
+  .hero h1 { font-size: clamp(42px, 10vw, 70px); }
+  .hero .eyebrow { font-size: 10px; letter-spacing: 1.2px; }
+  .hero-description { font-size: 17px; }
+  .hero-actions { gap: 22px; }
+  .hero .current-work {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    max-width: none;
+    gap: 24px;
+    align-items: center;
+  }
+  .hero .portrait { grid-column: auto; width: 110px; margin: 0; }
+  .hero-projects { padding: 0; }
+  .hero .hero-projects > a { padding-block: 12px; }
+  .hero .current-work .brand-wordmark { font-size: 23px; }
+  .hero-footnote { align-items: flex-start; gap: 24px; }
+  .hero-footnote > .career-milestones { gap: 36px; }
+}
+
+.hero-actions { flex-wrap: wrap; }
+.hero-actions .button,
+.hero-actions .text-link { white-space: nowrap; }
