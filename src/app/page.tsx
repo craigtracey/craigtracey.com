@@ -69,13 +69,6 @@ export default function Home() {
             <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
             <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
           </div>
-          <aside className="hero-side" aria-label="Craig Tracey and current projects">
-            <Image className="portrait" src="/images/craig-tracey.webp" alt="Craig Tracey" width={720} height={720} priority unoptimized />
-            <div className="hero-ventures">
-              <a href="https://sixdegree.ai" aria-label="Visit SixDegree"><ProjectBrand name="SixDegree" /><span>Enterprise context for AI</span></a>
-              <a href="https://deft.io" aria-label="Visit Deft"><ProjectBrand name="Deft" /><span>AI for customer conversations</span></a>
-            </div>
-          </aside>
           <div className="hero-proof">
             <p>Co-author of <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, published by O’Reilly.</p>
             <dl className="career-milestones" aria-label="Career milestones"><div><dt>IPOs</dt><dd>4</dd></div><div><dt>Acquisitions</dt><dd>2</dd></div></dl>

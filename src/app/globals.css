@@ -821,15 +821,12 @@ em {
 .career-milestones dt { font-size: 14px; color: var(--muted); }
 .career-milestones dd { order: -1; margin: 0; font-size: 42px; line-height: 1; letter-spacing: -1.5px; color: var(--foreground); }
 
-/* Hero content stays together; portrait and current work form a quiet aside. */
 .hero-personal {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  column-gap: 96px;
-  row-gap: 48px;
-  align-items: start;
-  padding-top: 76px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  padding-top: clamp(44px, 6vw, 84px);
 }
+.hero-main { text-align: center; }
 .hero-personal h1 {
   font-size: clamp(54px, 5.8vw, 80px);
   line-height: 1.05;
@@ -841,31 +838,19 @@ em {
   max-width: 54ch;
   font-size: 18px;
   line-height: 1.8;
-  margin: 0;
+  margin: 0 auto;
 }
 .hero-personal .hero-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
   margin-top: 32px;
 }
 .hero-actions .button,
 .hero-actions .text-link { white-space: nowrap; }
-.hero-side {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.hero-personal .portrait { width: 170px; margin: 0 0 24px; }
-.hero-ventures { width: 100%; display: flex; flex-direction: column; gap: 28px; }
-.hero-ventures > a { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding-left: 36px; }
-.hero-ventures > a > span:last-child:not(.project-brand) { font-size: 14px; line-height: 1.5; color: var(--muted); }
-.hero-ventures .brand-wordmark { font-size: 28px; }
-.hero-ventures .project-brand img { width: 29px; height: 29px; }
-.hero-ventures > a:hover .brand-wordmark { opacity: .8; }
 .hero-proof {
   grid-column: 1 / -1;
   display: flex;
@@ -881,23 +866,11 @@ em {
 .hero-proof .career-milestones > div { flex-direction: row; align-items: baseline; gap: 10px; }
 .hero-proof .career-milestones dd { font-size: 30px; letter-spacing: -1px; }
 .hero-proof .career-milestones dt { font-size: 14px; }
-@media (max-width: 1000px) {
-  .hero-personal { grid-template-columns: minmax(0, 1fr) 230px; column-gap: 40px; }
-  .hero-ventures > a { padding-left: 16px; }
-}
 @media (max-width: 760px) {
   .hero-personal { grid-template-columns: 1fr; padding-top: 44px; row-gap: 36px; }
   .hero-personal h1 { font-size: clamp(46px, 11.5vw, 72px); margin-bottom: 18px; }
   .hero-personal .hero-description { font-size: 16px; }
   .hero-personal .hero-actions { gap: 24px; margin-top: 28px; }
-  .hero-side { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 28px; padding-top: 0; align-items: center; }
-  .hero-personal .portrait { width: 96px; margin: 0; grid-column: auto; }
-  .hero-ventures { gap: 24px; }
-  .hero-ventures > a { padding: 0; gap: 8px; }
-  .hero-ventures .brand-wordmark { font-size: 25px; }
-  .hero-ventures .project-brand { gap: 6px; }
-  .hero-ventures .project-brand img { width: 25px; height: 25px; }
-  .hero-ventures > a > span:last-child:not(.project-brand) { font-size: 13px; }
   .hero-proof { align-items: flex-start; flex-direction: column; gap: 24px; padding-block: 24px; }
   .hero-proof > p { font-size: 14px; }
 }
