@@ -43,6 +43,14 @@ const expertise = [
   { title: "Product & enterprise", text: "I’ve founded companies, built products, and worked directly with enterprise customers through technical sales, implementation, and delivery.", tags: "Product · Technical sales · Enterprise delivery" },
 ];
 
+const climb = [
+  { year: "2023", layer: "Developer platforms", where: "Arctir · Backstage, Devgraph" },
+  { year: "2017", layer: "Kubernetes", where: "Heptio / VMware · Cluster API" },
+  { year: "2012", layer: "OpenStack & bare metal", where: "Blue Box / IBM · HubSpot" },
+  { year: "2007", layer: "Hypervisor networking", where: "VMware · ESX / vSphere" },
+  { year: "1999", layer: "Linux kernel & drivers", where: "Stratus · Netezza" },
+];
+
 function ProjectBrand({ name }: { name: string }) {
   const isSixDegree = name === "SixDegree";
   return (
@@ -67,28 +75,39 @@ export default function Home() {
           <div className="hero-main">
             <h1 id="hero-title">Founder.<br />Engineer.<br /><em>Across the stack.</em></h1>
             <div className="hero-intro">
-              <Image src="/images/craig-tracey.webp" alt="" width={52} height={52} unoptimized />
+              <Image src="/images/craig-tracey.webp" alt="" width={48} height={48} loading="eager" unoptimized />
               <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
             </div>
             <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
           </div>
-          <aside className="hero-projects" aria-label="Current projects">
-            {projects.map(project => (
-              <a className={`hero-preview preview-${project.className}`} key={project.name} href={project.url} aria-label={`Visit ${project.name}`}>
-                <span className="preview-window">
-                  <Image src={`/images/${project.className}.webp`} alt="" width={1200} height={project.className === "sixdegree" ? 667 : 608} unoptimized />
+          <aside className="hero-climb" aria-labelledby="climb-title">
+            <p id="climb-title" className="climb-label">25 years, up the stack</p>
+            <ol>
+              <li className="climb-now">
+                <span className="climb-year">Now</span>
+                <span className="climb-body">
+                  <strong>AI agents &amp; business context</strong>
+                  <span className="climb-projects">
+                    {projects.map(project => (
+                      <a key={project.name} href={project.url}><span className="sr-only">{project.name}</span><span aria-hidden="true"><ProjectBrand name={project.name} /></span><span aria-hidden="true">↗</span></a>
+                    ))}
+                  </span>
                 </span>
-                <span className="preview-caption">
-                  <ProjectBrand name={project.name} />
-                  <span aria-hidden="true">↗</span>
-                </span>
-              </a>
-            ))}
+              </li>
+              {climb.map(step => (
+                <li key={step.year}>
+                  <span className="climb-year">{step.year}</span>
+                  <span className="climb-body"><strong>{step.layer}</strong><span>{step.where}</span></span>
+                </li>
+              ))}
+            </ol>
           </aside>
-          <div className="hero-proof">
-            <p>Co-author of <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, published by O’Reilly.</p>
-            <dl className="career-milestones" aria-label="Career milestones"><div><dt>IPOs</dt><dd>4</dd></div><div><dt>Acquisitions</dt><dd>2</dd></div></dl>
-          </div>
+          <dl className="hero-proof" aria-label="Career milestones">
+            <div><dd>25+</dd><dt>Years</dt></div>
+            <div><dd>4</dd><dt>IPOs</dt></div>
+            <div><dd>2</dd><dt>Acquisitions</dt></div>
+            <div className="proof-book"><dt>Co-author of</dt><dd><a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, O’Reilly</dd></div>
+          </dl>
         </section>
 
         <section className="introduction shell" aria-labelledby="intro-title">

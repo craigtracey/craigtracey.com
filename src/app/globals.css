@@ -810,62 +810,22 @@ em {
   .company-mark > span { font-size: 21px; }
 }
 
-.career-milestones {
-  display: flex;
-  gap: 64px;
-  border-top: 1px solid var(--line);
-  margin: 28px 0 0;
-  padding-top: 24px;
-}
-.career-milestones > div { display: flex; flex-direction: column; gap: 8px; }
-.career-milestones dt { font-size: 14px; color: var(--muted); }
-.career-milestones dd { order: -1; margin: 0; font-size: 42px; line-height: 1; letter-spacing: -1.5px; color: var(--foreground); }
-
 .hero-personal {
-  grid-template-columns: minmax(0, 1fr) minmax(270px, .58fr);
-  gap: clamp(40px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .62fr);
+  gap: clamp(40px, 5vw, 80px);
   padding-top: clamp(44px, 6vw, 84px);
+  padding-bottom: clamp(56px, 7vw, 100px);
+  border-bottom: 1px solid var(--line);
 }
-.hero-intro { display: flex; align-items: flex-start; gap: 16px; }
-.hero-intro img {
-  width: 52px;
-  height: 52px;
-  flex: none;
-  margin-top: 5px;
-  object-fit: cover;
-  border-radius: 50%;
-  filter: grayscale(1) brightness(.82);
-}
-.hero-projects {
-  display: grid;
-  gap: 18px;
-  width: min(100%, 435px);
-  justify-self: end;
-}
-.hero-preview { display: grid; width: 80%; }
-.preview-deft { justify-self: end; }
-.preview-window {
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 3.2;
-  border: 1px solid var(--line);
-  background: #101318;
-}
-.preview-window img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.preview-caption { display: flex; align-items: center; justify-content: space-between; padding: 10px 0 0; }
-.preview-caption .project-brand img { width: 21px; height: 21px; }
-.preview-caption .brand-wordmark { font-size: 23px; letter-spacing: -1px; }
-.preview-caption > span:last-child { color: var(--muted); }
-.hero-preview:is(:hover, :focus-visible) .preview-window { border-color: var(--accent); }
 .hero-personal h1 {
   font-size: clamp(54px, 5.8vw, 80px);
   line-height: 1.05;
   letter-spacing: -.06em;
   font-weight: 500;
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 .hero-personal .hero-description {
-  max-width: 54ch;
+  max-width: 50ch;
   font-size: 18px;
   line-height: 1.8;
   margin: 0;
@@ -876,38 +836,115 @@ em {
   align-items: center;
   flex-wrap: wrap;
   gap: 28px;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 .hero-actions .button,
 .hero-actions .text-link { white-space: nowrap; }
+
+.hero-intro { display: flex; align-items: flex-start; gap: 16px; }
+.hero-intro img {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  margin-top: 4px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(1) brightness(.85);
+}
+
+/* Career timeline: newest at the top, one rail running down the stack. */
+.hero-climb { align-self: center; }
+.climb-label {
+  margin: 0 0 22px;
+  font: 11px var(--font-mono);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-climb ol { position: relative; list-style: none; margin: 0; padding: 0; }
+.hero-climb ol::before {
+  content: "";
+  position: absolute;
+  left: 52px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: linear-gradient(var(--accent), #b1ff4955 18%, var(--line) 60%);
+}
+.hero-climb li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 30px;
+  padding-bottom: 18px;
+}
+.hero-climb li:last-child { padding-bottom: 0; }
+.hero-climb li::before {
+  content: "";
+  position: absolute;
+  left: 49px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--background);
+  border: 1px solid #56637c;
+}
+.climb-year { font: 12px/1.6 var(--font-mono); color: #6f7a90; text-align: right; }
+.climb-body { display: flex; flex-direction: column; gap: 3px; }
+.climb-body strong { font-size: 16px; font-weight: 400; color: #c9d1e2; letter-spacing: -.2px; }
+.climb-body > span { font-size: 13px; color: #6f7a90; }
+.hero-climb li:not(.climb-now):hover strong { color: var(--foreground); }
+.climb-now { padding-bottom: 28px !important; }
+.climb-now::before {
+  top: 4px !important;
+  left: 47px !important;
+  width: 11px !important;
+  height: 11px !important;
+  border: 0 !important;
+  background: var(--accent) !important;
+  box-shadow: 0 0 0 5px #b1ff4922;
+  animation: climb-pulse 2.4s ease-in-out infinite;
+}
+@keyframes climb-pulse { 50% { box-shadow: 0 0 0 9px #b1ff4908; } }
+.climb-now .climb-year { color: var(--accent); }
+.climb-now .climb-body strong { font-size: 21px; font-weight: 500; color: var(--foreground); letter-spacing: -.5px; }
+.climb-projects { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 12px; }
+.climb-projects a { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); transition: color .2s; }
+.climb-projects a:is(:hover, :focus-visible) { color: var(--accent); }
+.climb-projects .project-brand { gap: 5px; }
+.climb-projects .project-brand img { width: 22px; height: 22px; }
+.climb-projects .brand-wordmark { font-size: 27px; letter-spacing: -1.3px; }
+
 .hero-proof {
   grid-column: 1 / -1;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 36px;
-  border-top: 1px solid var(--line);
+  align-items: baseline;
+  gap: 40px;
+  margin: 0;
   padding-block: 26px;
+  border-top: 1px solid var(--line);
 }
-.hero-proof > p { font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0; }
-.hero-proof > p a { color: var(--foreground); text-decoration: underline; text-underline-offset: 4px; }
-.hero-proof .career-milestones { border: 0; margin: 0; padding: 0; gap: 36px; flex-shrink: 0; }
-.hero-proof .career-milestones > div { flex-direction: row; align-items: baseline; gap: 10px; }
-.hero-proof .career-milestones dd { font-size: 30px; letter-spacing: -1px; }
-.hero-proof .career-milestones dt { font-size: 14px; }
+.hero-proof > div { display: flex; align-items: baseline; gap: 10px; }
+.hero-proof dd { margin: 0; }
+.hero-proof > div:not(.proof-book) dd { order: -1; font-size: 30px; line-height: 1; letter-spacing: -1px; }
+.hero-proof dt, .proof-book dd { font-size: 14px; color: var(--muted); }
+.proof-book { margin-left: auto; gap: 5px !important; }
+.proof-book dd a { color: var(--foreground); text-decoration: underline; text-underline-offset: 4px; }
+.proof-book dd a:hover { color: var(--accent); }
+.hero-personal { padding-bottom: 0; border-bottom: 0; }
+
 @media (max-width: 760px) {
-  .hero-projects { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .hero-preview { width: 100%; }
-  .preview-window { aspect-ratio: 2; }
-  .hero-intro { gap: 12px; }
-  .hero-intro img { width: 40px; height: 40px; }
-  .preview-caption .project-brand { gap: 4px; }
-  .preview-caption .brand-wordmark { font-size: 19px; }
-  .preview-caption .project-brand img { width: 17px; height: 17px; }
-  .hero-personal { grid-template-columns: 1fr; padding-top: 44px; row-gap: 36px; }
+  .hero-personal { grid-template-columns: 1fr; padding-top: 44px; row-gap: 40px; }
   .hero-personal h1 { font-size: clamp(46px, 11.5vw, 72px); margin-bottom: 18px; }
   .hero-personal .hero-description { font-size: 16px; }
   .hero-personal .hero-actions { gap: 24px; margin-top: 28px; }
-  .hero-proof { align-items: flex-start; flex-direction: column; gap: 24px; padding-block: 24px; }
-  .hero-proof > p { font-size: 14px; }
+  .hero-intro { gap: 12px; }
+  .hero-intro img { width: 40px; height: 40px; }
+  .hero-climb ol::before { left: 46px; }
+  .hero-climb li { grid-template-columns: 38px 1fr; column-gap: 26px; }
+  .hero-climb li::before { left: 43px; }
+  .climb-now::before { left: 41px !important; }
+  .hero-proof { flex-wrap: wrap; gap: 16px 32px; padding-block: 24px; }
+  .proof-book { margin-left: 0; width: 100%; }
 }
