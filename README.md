@@ -45,6 +45,20 @@ You can also upload an already-built `out/` folder using Cloudflare Pages Direct
 
 Official deployment reference: https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/
 
+## Cloudflare Workers static hosting
+
+The existing Workers Builds project is named `craigtracey-com`. `wrangler.jsonc` configures it to serve the same static `out/` export, with an explicit compatibility date. No OpenNext adapter is needed.
+
+| Setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Build command | `yarn build` |
+| Deploy command | `npx wrangler deploy --assets=./out` |
+| Root directory | `/` |
+| Environment variable | `NODE_VERSION=22` |
+
+The deploy command can also be simplified to `npx wrangler deploy`, since the assets directory is declared in `wrangler.jsonc`.
+
 ## Content
 
 - `src/app/page.tsx`: introduction, projects, expertise, background and social links.
