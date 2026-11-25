@@ -65,10 +65,9 @@ export default function Home() {
       <main id="main">
         <section className="hero hero-personal shell" aria-labelledby="hero-title">
           <div className="hero-main">
-            <h1 id="hero-title">Craig Tracey<span>.</span></h1>
-            <p className="hero-role">Founder and engineer.<br /><span>AI & infrastructure.</span></p>
-            <p className="hero-description">25+ years building across the stack, from Linux drivers and VMware networking to cloud platforms and enterprise AI. I’ve built companies, led technical teams, and sold and delivered to some of the world’s largest enterprises.</p>
-            <div className="hero-actions"><a className="button" href="#work">View my work</a><a className="text-link" href={CONTACT_URL}>Connect on LinkedIn</a></div>
+            <h1 id="hero-title">Founder.<br />Engineer.<br /><em>Across the stack.</em></h1>
+            <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
+            <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
           </div>
           <aside className="hero-side" aria-label="Craig Tracey and current projects">
             <Image className="portrait" src="/images/craig-tracey.webp" alt="Craig Tracey" width={720} height={720} priority unoptimized />
