@@ -63,22 +63,25 @@ export default function Home() {
         <a className="header-contact" href="#contact">Let’s talk</a>
       </header>
       <main id="main">
-        <section className="hero shell" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <h1 id="hero-title">AI systems.<br /><span>Infrastructure.</span></h1>
-            <p className="hero-description">I’m Craig Tracey, a founder and hands-on engineer. I’ve built across the stack, started companies, and sold and delivered software to some of the world’s largest enterprises.</p>
-            <div className="hero-actions"><a className="button" href="#work">Selected projects</a><a className="text-link" href={CONTACT_URL}>Connect on LinkedIn</a></div>
-          </div>
-          <aside className="current-work" aria-label="Craig Tracey and current projects">
-            <Image className="portrait" src="/images/craig-tracey.webp" alt="Craig Tracey" width={720} height={720} priority unoptimized />
-            <div className="hero-projects">
-              <a href="https://sixdegree.ai" aria-label="Visit SixDegree"><ProjectBrand name="SixDegree" /></a>
-              <a href="https://deft.io" aria-label="Visit Deft"><ProjectBrand name="Deft" /></a>
+        <section className="hero hero-personal shell" aria-labelledby="hero-title">
+          <div className="hero-identity">
+            <div>
+              <h1 id="hero-title">Craig Tracey<span>.</span></h1>
+              <p className="hero-role">Founder and engineer.<br /><span>AI & infrastructure.</span></p>
             </div>
-          </aside>
-          <div className="hero-footnote">
-            <p>Architecture, code, technical sales, and delivery.</p>
+            <Image className="portrait" src="/images/craig-tracey.webp" alt="Craig Tracey" width={720} height={720} priority unoptimized />
+          </div>
+          <div className="hero-overview">
+            <p className="hero-description">25+ years building across the stack, from Linux drivers and VMware networking to cloud platforms and enterprise AI. I’ve built companies, led technical teams, and sold and delivered to some of the world’s largest enterprises.</p>
+            <div className="hero-actions"><a className="button" href="#work">View my work</a><a className="text-link" href={CONTACT_URL}>Connect on LinkedIn</a></div>
+          </div>
+          <div className="hero-proof">
+            <p>Co-author of <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, published by O’Reilly.</p>
             <dl className="career-milestones" aria-label="Career milestones"><div><dt>IPOs</dt><dd>4</dd></div><div><dt>Acquisitions</dt><dd>2</dd></div></dl>
+          </div>
+          <div className="hero-ventures">
+            <a href="https://sixdegree.ai" aria-label="Visit SixDegree"><ProjectBrand name="SixDegree" /><span>Enterprise context for AI</span></a>
+            <a href="https://deft.io" aria-label="Visit Deft"><ProjectBrand name="Deft" /><span>AI for customer conversations</span></a>
           </div>
         </section>
 
