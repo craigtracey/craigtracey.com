@@ -33,6 +33,7 @@ Connect this Git repository in **Workers & Pages → Create application → Page
 | Setting | Value |
 | --- | --- |
 | Framework preset | Next.js (Static HTML Export) |
+| Production branch | `main` |
 | Build command | `yarn build` |
 | Build output directory | `out` |
 | Root directory | Repository root (or `craigtracey.com` if deploying the parent workspace) |
