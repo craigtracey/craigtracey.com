@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://craigtracey.com/sitemap.xml

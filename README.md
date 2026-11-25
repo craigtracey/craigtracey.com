@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# craigtracey.com
 
-## Getting Started
+Craig Tracey’s personal website: founder, engineer, AI, and infrastructure. Built with Next.js, React, and CSS; exported as static HTML for Cloudflare Pages. No server or runtime secrets required. Fonts, portrait, company logos, and product screenshots are local, with no third-party asset requests.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
+Use Node.js 22 and Yarn 4 (the version is pinned in `package.json`). Enable Corepack if Yarn is unavailable.
+
+```sh
+corepack enable
+yarn install --immutable
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+yarn build
+```
 
-## Learn More
+The deployable website is generated in `out/`. Do not use `next start` for a static export. To preview the exact production files:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+python3 -m http.server 3000 --directory out
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cloudflare Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Connect this Git repository in **Workers & Pages → Create application → Pages → Import an existing Git repository**.
 
-## Deploy on Vercel
+| Setting | Value |
+| --- | --- |
+| Framework preset | Next.js (Static HTML Export) |
+| Build command | `yarn build` |
+| Build output directory | `out` |
+| Root directory | Repository root (or `craigtracey.com` if deploying the parent workspace) |
+| Environment variable | `NODE_VERSION=22` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+After the first deployment, add `craigtracey.com` in the Pages project’s **Custom domains** settings and follow Cloudflare’s DNS instructions. Add `www.craigtracey.com` too if desired, and configure a Cloudflare redirect rule to the canonical `https://craigtracey.com` domain.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can also upload an already-built `out/` folder using Cloudflare Pages Direct Upload. No Workers adapter is needed.
+
+Official deployment reference: https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/
+
+## Content
+
+- `src/app/page.tsx`: introduction, projects, expertise, background and social links.
+- `src/app/globals.css`: responsive design, illustration styles, and reduced-motion support.
+- `src/app/layout.tsx`: page title, description, canonical URL, and social metadata.
+- `src/app/opengraph-image.tsx`: social sharing image, generated at build time.
+- `src/app/icon.svg` and `src/app/favicon.ico`: site icons.
+- `public/robots.txt` and `public/sitemap.xml`: search engine discovery.
+- `public/_headers`: Cloudflare Pages response headers.
+
+Featured projects are SixDegree (https://sixdegree.ai/about) and Deft (https://deft.io). Descriptions are based on their public sites. The experience list was supplied by Craig. Contact links point to LinkedIn. No email address is published.
+
+## Image sources
+
+- Portrait: https://sixdegree.ai/craig-tracey.png
+- Product screenshots: https://sixdegree.ai and https://deft.io (November 25, 2026)
+- Heptio: Accel portfolio company page, https://www.accel.com/companies/heptio
+- IBM, VMware, and HubSpot: Simple Icons v11, https://simpleicons.org (brand trademarks remain with their owners)
+- Carbonite: https://www.carbonite.com/assets/carbonite/icons/logo.svg
+- Netezza: https://commons.wikimedia.org/wiki/File:Netezza-old-Logo.jpg
+- Blue Box historical logo: https://logodix.com/logos/793006
+- Managing Kubernetes cover: https://learning.oreilly.com/library/cover/9781492033905/500w/
+- SixDegree logo and wordmark: https://sixdegree.ai/about (site header)
+- Deft logo and wordmark: https://deft.io/icon.svg and https://deft.io (site header)
+- Stratus: https://logotyp.us/file/stratus.svg
+- Computer Associates: https://commons.wikimedia.org/wiki/File:Computer_Associates_logo.svg

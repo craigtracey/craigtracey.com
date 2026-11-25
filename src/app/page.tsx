@@ -1,69 +1,120 @@
 import Image from "next/image";
 
+const CONTACT_URL = "https://www.linkedin.com/in/craigtracey";
+
+const projects = [
+  {
+    name: "SixDegree",
+    category: "Enterprise AI",
+    description: "Shared business context for people and AI agents.",
+    detail: "SixDegree connects records across CRM, support, billing, product, and engineering systems. It resolves entities and relationships into an operational graph, with sources, history, and access controls attached to the answers.",
+    tags: ["Context engineering", "Operational graphs", "Agents"],
+    url: "https://sixdegree.ai",
+    domain: "sixdegree.ai",
+    className: "sixdegree",
+  },
+  {
+    name: "Deft",
+    category: "Applied AI",
+    description: "Preparation, live guidance, and review for customer calls.",
+    detail: "Deft brings customer context and an editable talk track into a call, offers live guidance in a desktop app alongside Zoom, and helps review what changed afterward. Proposed updates stay linked to their source for the user to accept, edit, or dismiss.",
+    tags: ["Conversation intelligence", "Customer context", "Live guidance"],
+    url: "https://deft.io",
+    domain: "deft.io",
+    className: "deft",
+  },
+];
+
+const companies = [
+  { name: "VMware", logo: "/logos/vmware-trimmed.png", wordmark: true },
+  { name: "HubSpot", logo: "/logos/hubspot-trimmed.png", wordmark: false },
+  { name: "IBM", logo: "/logos/ibm-trimmed.png", wordmark: true },
+  { name: "Heptio", logo: "/logos/heptio-trimmed.png", wordmark: true },
+  { name: "Blue Box", logo: "/logos/blue-box-trimmed.png", wordmark: true },
+  { name: "Carbonite", logo: "/logos/carbonite-trimmed.png", wordmark: true },
+  { name: "Computer Associates", logo: "/logos/computer-associates-trimmed.png", wordmark: true },
+  { name: "Stratus", logo: "/logos/stratus-trimmed.png", wordmark: true },
+  { name: "Netezza", logo: "/logos/netezza-trimmed.png", wordmark: true },
+];
+
+const expertise = [
+  { title: "AI systems", text: "LLM applications, agents, retrieval, and evaluation. I work on the application logic, model integration, and infrastructure needed to run them.", tags: "Agents · Retrieval · Evals · Automation" },
+  { title: "Infrastructure & platforms", text: "Cloud architecture, distributed systems, deployment, and observability. My background includes building platforms and operating production infrastructure.", tags: "Cloud · Platforms · Reliability · Operations" },
+  { title: "Product & enterprise", text: "I’ve founded companies, built products, and worked directly with enterprise customers through technical sales, implementation, and delivery.", tags: "Product · Technical sales · Enterprise delivery" },
+];
+
+function ProjectBrand({ name }: { name: string }) {
+  const isSixDegree = name === "SixDegree";
+  return (
+    <span className={`project-brand ${isSixDegree ? "brand-sixdegree" : "brand-deft"}`}>
+      <Image src={`/logos/${isSixDegree ? "sixdegree" : "deft-mark"}.svg`} alt="" width={36} height={36} unoptimized />
+      <span className="brand-wordmark">{isSixDegree ? <><span>six</span><span className="brand-blue">degree</span></> : <>deft<span className="brand-lime">.</span></>}</span>
+    </span>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+      <header className="site-header shell">
+        <a href="#" className="wordmark" aria-label="Craig Tracey home">craigtracey<span>.</span></a>
+        <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a></nav>
+        <a className="header-contact" href="#contact">Let’s talk</a>
+      </header>
+      <main id="main">
+        <section className="hero shell" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow">FOUNDER. ENGINEER. BUILDER.</p>
+            <h1 id="hero-title">Founder.<br />Engineer.<br /><em>Across the stack.</em></h1>
+            <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
+            <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
+          </div>
+          <aside className="current-work" aria-label="Craig Tracey and current projects">
+            <Image className="portrait" src="/images/craig-tracey.webp" alt="Craig Tracey" width={720} height={720} priority unoptimized />
+            <p className="eyebrow">CURRENTLY BUILDING</p>
+            <a href="https://sixdegree.ai"><strong><ProjectBrand name="SixDegree" /></strong><span>Enterprise context for AI</span></a>
+            <a href="https://deft.io"><strong><ProjectBrand name="Deft" /></strong><span>AI for customer conversations</span></a>
+          </aside>
+          <div className="hero-footnote"><span>AI / INFRASTRUCTURE / SOFTWARE</span><p>Architecture, code, technical sales, and delivery.</p></div>
+        </section>
+
+        <section className="introduction shell" aria-labelledby="intro-title">
+          <p className="eyebrow">BACKGROUND</p>
+          <h2 id="intro-title">From the code<br /><span>to the customer.</span></h2>
+          <div className="intro-copy"><p>My experience spans every layer of the stack, from infrastructure and platforms to applications and AI. I’ve founded companies, written the code, and sold and delivered to some of the largest companies in the world.</p><p>I work across architecture, implementation, technical sales, and customer delivery. I’m comfortable writing code and working through requirements with a customer’s engineering team.</p><dl className="career-milestones" aria-label="Career milestones"><div><dt>IPOs</dt><dd>4</dd></div><div><dt>Acquisitions</dt><dd>2</dd></div></dl></div>
+        </section>
+
+        <section id="work" className="work section shell" aria-labelledby="work-title">
+          <div className="section-heading"><div><p className="eyebrow">PROJECTS</p><h2 id="work-title">Selected projects<span>.</span></h2></div><p>A few things I’ve been building.</p></div>
+          <div className="project-grid">{projects.map((project) => (
+            <article className="project" key={project.name}>
+              <a className={`project-banner ${project.className}`} href={project.url} aria-label={`Visit ${project.name}`}><Image src={`/images/${project.className}.webp`} alt={`${project.name} website showing the product`} width={1200} height={project.className === "sixdegree" ? 667 : 608} loading="lazy" unoptimized /></a>
+              <div className="project-body"><p className="project-category">{project.category}</p><h3><span className="sr-only">{project.name}</span><span aria-hidden="true"><ProjectBrand name={project.name} /></span></h3><p className="project-description">{project.description}</p><div className="tags">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div><p className="project-detail">{project.detail}</p><a className="project-visit text-link" href={project.url}>Visit {project.domain}</a></div>
+            </article>
+          ))}</div>
+        </section>
+
+        <section id="experience" className="experience section shell" aria-labelledby="experience-title">
+          <div className="section-heading"><div><p className="eyebrow">EXPERIENCE</p><h2 id="experience-title">Where I’ve worked<span>.</span></h2></div><p>Infrastructure, platforms, and enterprise software.</p></div>
+          <ul className="company-list">{companies.map(company => <li key={company.name}><span className="company-mark">{company.logo && <Image src={company.logo} alt={company.wordmark ? company.name : ""} width={160} height={50} unoptimized loading="lazy" />}{!company.wordmark && <span>{company.name}</span>}</span></li>)}</ul>
+        </section>
+
+        <section id="expertise" className="expertise section" aria-labelledby="expertise-title"><div className="shell"><div className="section-heading"><div><p className="eyebrow">EXPERTISE</p><h2 id="expertise-title">Areas of focus<span>.</span></h2></div><p>AI, infrastructure, and enterprise software.</p></div><div className="expertise-grid">{expertise.map(item=><article key={item.title}><div className="expertise-rule" /><h3>{item.title}</h3><p>{item.text}</p><span className="expertise-tags">{item.tags}</span></article>)}</div></div></section>
+
+        <section id="about" className="about section shell" aria-labelledby="about-title"><div><p className="eyebrow">ABOUT</p><h2 id="about-title">I stay close<br /><span>to the work.</span></h2><a className="text-link" href="https://github.com/craigtracey">Find me on GitHub</a></div><div className="about-copy"><p className="large-copy">I’m a founder who writes code.</p><p>I’ve worked at every layer of the stack, from cloud platforms and distributed infrastructure to applications and AI. I’ve also been responsible for selling that work and delivering it to enterprise customers.</p><p>That means thinking about more than implementation: how a system will be deployed, who will operate it, what it costs, and whether it solves the customer’s problem.</p></div></section>
+
+        <section className="writing section shell" aria-labelledby="writing-title">
+          <div><p className="eyebrow">BOOK</p><h2 id="writing-title">Managing Kubernetes<span>.</span></h2></div>
+          <div className="book-feature">
+            <a className="book-cover" href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/" aria-label="View Managing Kubernetes on O’Reilly"><Image src="/images/managing-kubernetes.jpg" alt="Managing Kubernetes by Brendan Burns and Craig Tracey, published by O’Reilly" width={500} height={656} loading="lazy" unoptimized /></a>
+            <div className="book-copy"><p className="eyebrow">O’REILLY</p><h3>Operating Kubernetes in production</h3><p>Co-authored with Brendan Burns. A guide to Kubernetes architecture, cluster operations, and maintenance.</p><a className="text-link" href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">View the book</a></div>
+          </div>
+        </section>
+
+        <section id="contact" className="contact shell" aria-labelledby="contact-title"><div className="contact-inner"><p className="eyebrow">CONTACT</p><h2 id="contact-title">Working on something?<br /><em>Get in touch.</em></h2><div className="contact-bottom"><p>For engineering work, advisory, or a conversation<br />about AI and infrastructure.</p><a className="button" href={CONTACT_URL}>Message me on LinkedIn</a></div></div></section>
       </main>
-    </div>
+      <footer className="site-footer shell"><a className="wordmark" href="#">craigtracey<span>.</span></a><p>© {new Date().getFullYear()} Craig Tracey</p><nav aria-label="Social links"><a href="https://github.com/craigtracey">GitHub</a><a href="https://www.linkedin.com/in/craigtracey">LinkedIn</a><a href={CONTACT_URL}>Contact</a></nav></footer>
+    </>
   );
 }
