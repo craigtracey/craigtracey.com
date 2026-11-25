@@ -69,6 +69,20 @@ export default function Home() {
             <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
             <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
           </div>
+          <aside className="hero-profile" aria-label="Craig Tracey and current projects">
+            <div className="profile-identity">
+              <Image src="/images/craig-tracey.webp" alt="" width={72} height={72} unoptimized />
+              <div><strong>Craig Tracey</strong><span>Boston, MA</span></div>
+            </div>
+            <a className="profile-project" href="https://sixdegree.ai" aria-label="Visit SixDegree">
+              <ProjectBrand name="SixDegree" /><span className="project-arrow" aria-hidden="true">↗</span>
+              <span className="profile-caption">Enterprise context for AI</span>
+            </a>
+            <a className="profile-project" href="https://deft.io" aria-label="Visit Deft">
+              <ProjectBrand name="Deft" /><span className="project-arrow" aria-hidden="true">↗</span>
+              <span className="profile-caption">AI for customer conversations</span>
+            </a>
+          </aside>
           <div className="hero-proof">
             <p>Co-author of <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, published by O’Reilly.</p>
             <dl className="career-milestones" aria-label="Career milestones"><div><dt>IPOs</dt><dd>4</dd></div><div><dt>Acquisitions</dt><dd>2</dd></div></dl>

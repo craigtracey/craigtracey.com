@@ -822,11 +822,46 @@ em {
 .career-milestones dd { order: -1; margin: 0; font-size: 42px; line-height: 1; letter-spacing: -1.5px; color: var(--foreground); }
 
 .hero-personal {
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(270px, .58fr);
   gap: clamp(40px, 5vw, 72px);
   padding-top: clamp(44px, 6vw, 84px);
 }
-.hero-main { text-align: center; }
+.hero-profile {
+  width: min(100%, 380px);
+  justify-self: end;
+  padding: 0 clamp(20px, 2.4vw, 32px);
+  background: linear-gradient(145deg, #191e27, #101318 75%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+}
+.profile-identity img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+.profile-identity strong { display: block; font-size: 19px; font-weight: 500; }
+.profile-identity span, .profile-caption { color: var(--muted); font-size: 14px; }
+.profile-project {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.profile-project .project-brand img { width: 26px; height: 26px; }
+.profile-project .brand-wordmark { font-size: 27px; }
+.project-arrow { color: var(--muted); font-size: 20px; }
+.profile-project:is(:hover, :focus-visible) .project-arrow { color: var(--accent); }
+.profile-caption { grid-column: 1 / -1; }
 .hero-personal h1 {
   font-size: clamp(54px, 5.8vw, 80px);
   line-height: 1.05;
@@ -838,14 +873,13 @@ em {
   max-width: 54ch;
   font-size: 18px;
   line-height: 1.8;
-  margin: 0 auto;
+  margin: 0;
 }
 .hero-personal .hero-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 28px;
   margin-top: 32px;
 }
@@ -867,6 +901,7 @@ em {
 .hero-proof .career-milestones dd { font-size: 30px; letter-spacing: -1px; }
 .hero-proof .career-milestones dt { font-size: 14px; }
 @media (max-width: 760px) {
+  .hero-profile { width: 100%; justify-self: stretch; }
   .hero-personal { grid-template-columns: 1fr; padding-top: 44px; row-gap: 36px; }
   .hero-personal h1 { font-size: clamp(46px, 11.5vw, 72px); margin-bottom: 18px; }
   .hero-personal .hero-description { font-size: 16px; }
