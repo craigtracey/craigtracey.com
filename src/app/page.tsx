@@ -66,22 +66,24 @@ export default function Home() {
         <section className="hero hero-personal shell" aria-labelledby="hero-title">
           <div className="hero-main">
             <h1 id="hero-title">Founder.<br />Engineer.<br /><em>Across the stack.</em></h1>
-            <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
+            <div className="hero-intro">
+              <Image src="/images/craig-tracey.webp" alt="" width={52} height={52} unoptimized />
+              <p className="hero-description">I’m Craig Tracey. I build <strong>AI systems, infrastructure, and software.</strong> I’ve founded companies and sold and delivered to some of the world’s largest enterprises.</p>
+            </div>
             <div className="hero-actions"><a className="button" href="#work">Explore my work</a><a className="text-link" href={CONTACT_URL}>Get in touch</a></div>
           </div>
-          <aside className="hero-profile" aria-label="Craig Tracey and current projects">
-            <div className="profile-identity">
-              <Image src="/images/craig-tracey.webp" alt="" width={72} height={72} unoptimized />
-              <div><strong>Craig Tracey</strong><span>Boston, MA</span></div>
-            </div>
-            <a className="profile-project" href="https://sixdegree.ai" aria-label="Visit SixDegree">
-              <ProjectBrand name="SixDegree" /><span className="project-arrow" aria-hidden="true">↗</span>
-              <span className="profile-caption">Enterprise context for AI</span>
-            </a>
-            <a className="profile-project" href="https://deft.io" aria-label="Visit Deft">
-              <ProjectBrand name="Deft" /><span className="project-arrow" aria-hidden="true">↗</span>
-              <span className="profile-caption">AI for customer conversations</span>
-            </a>
+          <aside className="hero-projects" aria-label="Current projects">
+            {projects.map(project => (
+              <a className={`hero-preview preview-${project.className}`} key={project.name} href={project.url} aria-label={`Visit ${project.name}`}>
+                <span className="preview-window">
+                  <Image src={`/images/${project.className}.webp`} alt="" width={1200} height={project.className === "sixdegree" ? 667 : 608} unoptimized />
+                </span>
+                <span className="preview-caption">
+                  <ProjectBrand name={project.name} />
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            ))}
           </aside>
           <div className="hero-proof">
             <p>Co-author of <a href="https://www.oreilly.com/library/view/managing-kubernetes/9781492033905/">Managing Kubernetes</a>, published by O’Reilly.</p>
