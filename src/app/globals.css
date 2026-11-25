@@ -255,7 +255,9 @@ em {
 .project {
   border:1px solid var(--line);
   background:#0f1420;
-  align-self:start;
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
 }
 
 
@@ -646,10 +648,10 @@ em {
 .project-banner.sixdegree { background: #1945ed; }
 .project-banner.deft { background: #20284c; }
 .project-domain { font: 14px var(--font-mono); }
-.project-body { padding-bottom: 28px; }
+.project-body { padding-bottom: 28px; display: flex; flex-direction: column; flex: 1; }
 .project-description { min-height: 0; }
 .project-detail { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
-.project-visit { display: inline-block; }
+.project-visit { display: inline-block; align-self: flex-start; margin-top: auto; }
 .experience { padding-top: 0; }
 .company-list { padding: 0; margin: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0; border-block: 1px solid var(--line); }
 .company-list li { font-size: clamp(22px, 2.5vw, 30px); letter-spacing: -.8px; padding: 30px 36px 30px 0; color: #d6deee; }
@@ -693,7 +695,7 @@ em {
 .current-work a { display: inline-flex; padding: 12px 0; width: 48%; vertical-align: top; }
 .current-work strong { font-size: 25px; letter-spacing: -.7px; }
 .current-work a > span { font-size: 12px; line-height: 1.6; }
-.project-banner { height: auto; padding: 0; background: #111723; border-bottom: 1px solid var(--line); overflow: hidden; }
+.project-banner { flex-shrink: 0; height: auto; padding: 0; background: #111723; border-bottom: 1px solid var(--line); overflow: hidden; }
 .project-banner img { display: block; width: 100%; height: auto; aspect-ratio: 1.8; object-fit: cover; object-position: top; transition: transform .3s; }
 .project-banner:hover img { transform: scale(1.025); }
 .company-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-block: 12px; }
