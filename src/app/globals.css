@@ -406,6 +406,14 @@ em {
   justify-content:space-between;
   gap:24px;
 }
+.consulting-copy {
+  max-width:64ch;
+  display:grid;
+  gap:14px;
+}
+.contact-bottom .button {
+  flex-shrink:0;
+}
 .contact-bottom p {
   font-size:16px;
   line-height:1.8;

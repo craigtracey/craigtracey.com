@@ -68,7 +68,7 @@ export default function Home() {
       <header className="site-header shell">
         <a href="#" className="wordmark" aria-label="Craig Tracey home">craigtracey<span>.</span></a>
         <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a></nav>
-        <a className="header-contact" href="#contact">Let’s talk</a>
+        <a className="header-contact" href="#contact">Consulting</a>
       </header>
       <main id="main">
         <section className="hero hero-personal shell" aria-labelledby="hero-title">
@@ -142,7 +142,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="contact shell" aria-labelledby="contact-title"><div className="contact-inner"><h2 id="contact-title">Working on something?<br /><em>Get in touch.</em></h2><div className="contact-bottom"><p>For engineering work, advisory, or a conversation<br />about AI and infrastructure.</p><a className="button" href={CONTACT_URL}>Message me on LinkedIn</a></div></div></section>
+        <section id="contact" className="contact shell" aria-labelledby="contact-title">
+          <div className="contact-inner">
+            <h2 id="contact-title">Enterprise rollout <em>reviews.</em></h2>
+            <div className="contact-bottom">
+              <div className="consulting-copy">
+                <p>I consult with teams taking AI and infrastructure products from pilot to production. If a customer is ready to roll out and you’re unsure what it will take, I can review the plan with your engineers.</p>
+                <p>Bring your architecture, the customer’s requirements, and the decisions holding up launch. I’ll put together a written assessment of the risks and a prioritized plan your team can use to ship.</p>
+              </div>
+              <a className="button" href={CONTACT_URL}>Message me on LinkedIn</a>
+            </div>
+          </div>
+        </section>
       </main>
       <footer className="site-footer shell"><a className="wordmark" href="#">craigtracey<span>.</span></a><p>© {new Date().getFullYear()} Craig Tracey</p><nav aria-label="Social links"><a href="https://github.com/craigtracey">GitHub</a><a href="https://www.linkedin.com/in/craigtracey">LinkedIn</a><a href={CONTACT_URL}>Contact</a></nav></footer>
     </>
